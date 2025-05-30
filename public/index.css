@@ -1,0 +1,133 @@
+img {
+    width: 100%;
+    height: auto;
+}
+
+.nav-bar {
+    display: flex;
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.logo-container {
+    padding-left: 10px;
+}
+
+.search-container {
+    width: 40%;
+    background-color: rgb(185, 185, 185);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.login-container {
+    padding-right: 10px;
+}
+
+.home-logo {
+    font-size: 2.3em;
+    text-decoration: none;
+    color: black;
+    margin-left: 8px;
+    font-family: "Alfa Slab One", serif;
+}
+
+.home-logo span {
+    color:rgb(211, 31, 31)
+}
+
+.logo-container img {
+    width: auto;
+    height: 40px;
+}
+
+.search-container img {
+    width: auto;
+    height: 20px;
+}
+
+.main-body {
+    padding-top: 50px;
+}
+
+.post {
+    padding: 20px;
+    margin: 5%;
+    border: 8px solid black;
+    border-radius: 50px;
+    background-color: rgb(211, 211, 211);
+}
+
+.post h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 20px 20px 50px 20px;
+    font-weight: bold;
+}
+
+.post-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vote-container {
+    padding-right: 30px;
+}
+
+.numUpvotes {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.uptime {
+    text-align: center;
+    color: rgb(94, 94, 94);
+    padding-top: 10px;
+}
+
+
+.upvote, .downvote {
+    background: none;
+    border: none;
+}
+
+svg {
+    fill: rgb(105, 105, 105)
+}
+
+svg:hover {
+    stroke:red
+}
+
+.post-body {
+    margin-right: 20px;
+    width: 80%;
+}
+
+.post-image {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 3px solid black;
+}
+
+.post-body-article {
+    padding-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+@media only screen and (min-width: 1000px) {
+    .post {
+        margin: 50px 20% 5% 20%;
+    }
+}
