@@ -14,10 +14,11 @@ export default configureStore({
         title:
         body:
         numUpvotes:
-        numDownvotes:
-        date:
+        dateCreated:
+        upTime:
         subreddit:
-        username:
+        subredditId:
+        author:
         comments: [{
             id:
             author:
