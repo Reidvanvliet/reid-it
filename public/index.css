@@ -59,9 +59,8 @@ img {
 .post {
     padding: 20px;
     margin: 5%;
-    border: 8px solid black;
+    box-shadow: 0px 0px 5px 5px grey;
     border-radius: 50px;
-    background-color: rgb(211, 211, 211);
 }
 
 .post h1 {
@@ -124,6 +123,16 @@ svg:hover {
     font-size: 2rem;
     text-align: center;
     word-wrap: break-word;
+}
+
+.article-interact-container {
+    display: flex;
+
+}
+
+.article-interact-container svg {
+    height: 50px;
+    width: 50px;
 }
 
 @media only screen and (min-width: 1000px) {

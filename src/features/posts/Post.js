@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
-const Post = ({ post }) => {
+const Post = ({ post, index }) => {
   return (
+    <Link to={`/article/${index}`}>
     <div className="post">
       <h1>{post.title}</h1>
       <div className="post-content">
@@ -26,6 +28,7 @@ const Post = ({ post }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

@@ -22,9 +22,9 @@ const Posts = () => {
 
     return (
         <div>
-            {allPosts.map((post) => {
+            {allPosts.map((post, index) => {
                 let uniqueKey = uuidv4();
-                return <Post post={post} key={uniqueKey}/>
+                return <Post post={post} key={uniqueKey} index={index}/>
             })}
         </div>
     )
