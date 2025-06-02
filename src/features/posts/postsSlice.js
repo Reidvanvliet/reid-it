@@ -31,8 +31,7 @@ const handlePostsData = async (json) => {
       upTime: timeDiffHrs,
       subreddit: postJson.data.subreddit,
       subredditId: postJson.data.subreddit_id,
-      author: postJson.data.author,
-      comments: [],
+      author: postJson.data.author
     };
     post.img = postJson.data.preview
       ? postJson.data.preview.images[0].source.url
@@ -42,40 +41,37 @@ const handlePostsData = async (json) => {
   return postData;
 };
 
-export const getPosts = createAsyncThunk(
-    "posts/getPosts",
-    async () => {
-      const response = await fetch("https://www.reddit.com/best.json?raw_json=1");
-      const jsonResponse = await response.json();
-      const formattedPosts = await handlePostsData(jsonResponse);
-      return formattedPosts;
-    }
-)
+export const getPosts = createAsyncThunk("posts/getPosts", async () => {
+  const response = await fetch("https://www.reddit.com/best.json?raw_json=1");
+  const jsonResponse = await response.json();
+  const formattedPosts = await handlePostsData(jsonResponse);
+  return formattedPosts;
+});
 
 export const postsSlice = createSlice({
   name: "posts",
   initialState: {
     posts: [],
     isLoading: true,
-    hasError: false
+    hasError: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
-    .addCase(getPosts.pending, (state) => {
-      state.isLoading = true;
-      state.hasError = false;
-    })
-    .addCase(getPosts.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.hasError = false;
-      state.posts = action.payload;
-    })
-    .addCase(getPosts.rejected, (state, action) => {
-      state.isLoading = false;
-      state.hasError = true;
-    })
-  }
+      .addCase(getPosts.pending, (state) => {
+        state.isLoading = true;
+        state.hasError = false;
+      })
+      .addCase(getPosts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hasError = false;
+        state.posts = action.payload;
+      })
+      .addCase(getPosts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.hasError = true;
+      });
+  },
 });
 
 export const selectPosts = (state) => state.posts.posts;

@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPosts } from "../features/posts/postsSlice";
 import { mockData } from "../mockData/mockData";
+import Comments from '../features/comments/Comments'
 
 const Article = () => {
   const params = useParams();
@@ -40,7 +41,7 @@ const Article = () => {
         <p>r/{post.subreddit}</p>
         <p>{post.author}</p>
       </div>
-      {/*<Comments post={post} />*/}
+      <Comments post={post} />
     </>
   );
 };
