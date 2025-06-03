@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
-const Post = ({ post, index }) => {
+const Post = ({ post }) => {
   const [image, setImage] = useState("")
 
   const checkImage = () => {
@@ -19,7 +19,7 @@ const Post = ({ post, index }) => {
   
 
   return (
-    <Link to={`/article/${index}`}>
+    <Link to={`/${post.subreddit}/${post.id}`}>
     <div className="post">
       <h1>{post.title}</h1>
       <div className="post-content">

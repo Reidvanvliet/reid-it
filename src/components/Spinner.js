@@ -4,6 +4,9 @@ const spinnerIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Redux
 
 export default function Spinner() {
   return (
-    <img src={spinnerIconUrl} alt="Recipes are loading" className="spinner" />
+    <div className="spinner-container">
+      <img src={spinnerIconUrl} alt="Recipes are loading" className="spinner" />
+    </div>
+    
   );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { getComments, isLoading, selectComments } from "./commentsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner";
 import Comment from './Comment';

@@ -22,9 +22,8 @@ const Posts = () => {
 
     return (
         <div>
-            {allPosts.map((post, index) => {
-                let uniqueKey = uuidv4();
-                return <Post post={post} key={uniqueKey} index={index}/>
+            {allPosts.map((post) => {
+                return <Post post={post} key={post.id} />
             })}
         </div>
     )
