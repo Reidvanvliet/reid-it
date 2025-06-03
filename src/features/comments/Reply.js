@@ -1,5 +1,9 @@
-<div>
-        {comment.data.replies.data.children.map((reply, index) => (
-            <Comment key={index} comment={reply} />
-        ))}
-        </div>
+if(postJson.data.preview) {
+      post.img = postJson.data.preview.images[0].source.url
+    } else if(postJson.data.media_metadata) {
+      const imagesArray = [];
+      const imageObjects = Object.values(postJson.data.media_metadata);
+      imageObjects.map((obj) => {
+        imagesArray.push(obj.s.u);
+      })
+    }

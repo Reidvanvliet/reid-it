@@ -9,16 +9,16 @@ import { v4 as uuidv4 } from "uuid";
 
 const Posts = () => {
     const dispatch = useDispatch();
-    const allPosts = mockData//useSelector(selectPosts);
+    const allPosts = useSelector(selectPosts);
     const isLoadingPosts = useSelector(isLoading);
 
-    /*useEffect(() => {
+    useEffect(() => {
         dispatch(getPosts());
-    },[dispatch])*/
+    },[dispatch])
     
-    /*if(isLoadingPosts) {
+    if(isLoadingPosts) {
         return <Spinner />
-    }*/
+    }
 
     return (
         <div>

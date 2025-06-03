@@ -33,9 +33,15 @@ const handlePostsData = async (json) => {
       subredditId: postJson.data.subreddit_id,
       author: postJson.data.author
     };
-    post.img = postJson.data.preview
-      ? postJson.data.preview.images[0].source.url
-      : "";
+    if(postJson.data.preview) {
+      post.img = postJson.data.preview.images[0].source.url
+    } else if(postJson.data.media_metadata) {
+      const imagesArray = [];
+      const imageObjects = Object.values(postJson.data.media_metadata);
+      imageObjects.map((obj) => {
+        imagesArray.push(obj.s.u);
+      })
+    }
     postData.push(post);
   });
   return postData;
@@ -44,6 +50,7 @@ const handlePostsData = async (json) => {
 export const getPosts = createAsyncThunk("posts/getPosts", async () => {
   const response = await fetch("https://www.reddit.com/best.json?raw_json=1");
   const jsonResponse = await response.json();
+  console.log(jsonResponse);
   const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
 });

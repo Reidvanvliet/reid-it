@@ -8,7 +8,7 @@ import Comments from '../features/comments/Comments'
 const Article = () => {
   const params = useParams();
   const articleIndex = params.articleId;
-  const allPosts = mockData; //useSelector(selectPosts);
+  const allPosts = useSelector(selectPosts);
   const post = allPosts[articleIndex];
 
   return (
