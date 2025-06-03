@@ -25,7 +25,7 @@ const handlePostsData = async (json) => {
     const post = {
       id: postJson.data.id,
       title: postJson.data.title,
-      body: postJson.data.selftext,
+      body: postJson.data.selftext_html,
       numUpvotes: postJson.data.ups,
       dateCreated: dateCreatedString,
       upTime: timeDiffHrs,
@@ -41,6 +41,7 @@ const handlePostsData = async (json) => {
       imageObjects.map((obj) => {
         imagesArray.push(obj.s.u);
       })
+      post.img = imagesArray;
     }
     postData.push(post);
   });
@@ -50,7 +51,6 @@ const handlePostsData = async (json) => {
 export const getPosts = createAsyncThunk("posts/getPosts", async () => {
   const response = await fetch("https://www.reddit.com/best.json?raw_json=1");
   const jsonResponse = await response.json();
-  console.log(jsonResponse);
   const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
 });

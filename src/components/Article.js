@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPosts } from "../features/posts/postsSlice";
@@ -10,6 +10,19 @@ const Article = () => {
   const articleIndex = params.articleId;
   const allPosts = useSelector(selectPosts);
   const post = allPosts[articleIndex];
+  const [image, setImage] = useState("")
+  
+    const checkImage = () => {
+      if(Array.isArray(post.img)) {
+      setImage(post.img[0])
+    } else if(post.img) {
+      setImage(post.img)
+    }
+    }
+  
+    useEffect(() => {
+      checkImage();
+    },[])
 
   return (
     <>
@@ -17,9 +30,9 @@ const Article = () => {
         <h1>{post.title}</h1>
         <div className="post-content">
           <div className="post-body">
-            {post.img ? <img className="post-image" src={post.img} /> : ""}
-            <p className="post-body-article">{post.body}</p>
-          </div>
+          {image ? <img className="post-image" src={image} /> : ""}
+          <div className="post-body-article" dangerouslySetInnerHTML={{__html: post.body}} />
+        </div>
         </div>
       </div>
 

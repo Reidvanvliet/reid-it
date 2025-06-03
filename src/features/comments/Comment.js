@@ -36,7 +36,7 @@ const Comment = ({ comment }) => {
         <button onClick={(e) => setDisplayComment(false)}>close</button>
       )}
       {displayComment && (
-        <div style={{"padding-left": "3rem"}}>
+        <div style={{"paddingLeft": "3rem"}}>
           {comment.data.replies.data.children.map((reply, index) => (
             <Comment key={index} comment={reply} />
           ))}

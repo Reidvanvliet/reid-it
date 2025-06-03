@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 const Post = ({ post, index }) => {
+  const [image, setImage] = useState("")
+
+  const checkImage = () => {
+    if(Array.isArray(post.img)) {
+    setImage(post.img[0])
+  } else if(post.img) {
+    setImage(post.img)
+  }
+  }
+
+  useEffect(() => {
+    checkImage();
+  },[])
+
+  
+
   return (
     <Link to={`/article/${index}`}>
     <div className="post">
@@ -23,8 +39,8 @@ const Post = ({ post, index }) => {
           <p className="uptime">{post.upTime} hr. ago</p>
         </div>
         <div className="post-body">
-          {post.img ? <img className="post-image" src={post.img} /> : ""}
-            <p className="post-body-article">{post.body}</p>
+          {image ? <img className="post-image" src={image} /> : ""}
+          <div className="post-body-article" dangerouslySetInnerHTML={{__html: post.body}} />
         </div>
       </div>
     </div>
