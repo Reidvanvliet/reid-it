@@ -37,8 +37,8 @@ const Comment = ({ comment }) => {
       )}
       {displayComment && (
         <div style={{"paddingLeft": "3rem"}}>
-          {comment.data.replies.data.children.map((reply, index) => (
-            <Comment key={index} comment={reply} />
+          {comment.data.replies.data.children.map((reply) => (
+            <Comment key={reply.id} comment={reply} />
           ))}
         </div>
       )}

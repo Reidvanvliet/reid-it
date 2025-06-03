@@ -84,7 +84,7 @@ const Article = () => {
         <p>r/{article[0].data.children[0].data.subreddit}</p>
         <p>{article[0].data.children[0].data.author}</p>
       </div>
-      {/*<Comments post={post} />*/}
+      <Comments comments={article[1].data.children} key={article[0].data.children[0].data.id} />
     </>
   );
 };
