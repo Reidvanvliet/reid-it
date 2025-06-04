@@ -1,0 +1,5 @@
+I have to fixe the comments from rendering when the api cuts off the reply train.
+
+I have to allow the comments section to handle a gif reply.
+
+It might be a good idea to have the comments render HTML instead but i havent seen a comment with that in it.
