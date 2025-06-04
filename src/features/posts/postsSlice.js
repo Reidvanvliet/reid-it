@@ -37,10 +37,9 @@ const handlePostsData = async (json) => {
       post.img = postJson.data.preview.images[0].source.url
     } else if(postJson.data.media_metadata) {
       const imagesArray = [];
-      const imageObjects = Object.values(postJson.data.media_metadata);
-      imageObjects.map((obj) => {
-        imagesArray.push(obj.s.u);
-      })
+      for (const property in postJson.data.media_metadata) {
+        imagesArray.push(postJson.data.media_metadata[property].s.u);
+      }
       post.img = imagesArray;
     }
     postData.push(post);
