@@ -3,6 +3,10 @@ img {
     height: auto;
 }
 
+strong {
+    font-weight: bold;
+}
+
 .nav-bar {
     display: flex;
     position: fixed;
@@ -63,11 +67,21 @@ img {
     border-radius: 50px;
 }
 
+#article h1 {
+    line-clamp: none;
+    -webkit-line-clamp: none;
+}
+
 .post h1 {
+    display: -webkit-box;
+    font-family: "Alfa Slab One", serif;
     text-align: center;
-    font-size: 3rem;
-    margin: 20px 20px 50px 20px;
-    font-weight: bold;
+    font-size: 2.5rem;
+    margin: 20px 20px 40px 20px;
+    overflow: hidden;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .post-content {
@@ -82,9 +96,9 @@ img {
 
 .numUpvotes {
     text-align: center;
-    font-weight: bold;
     font-size: 1.5rem;
     padding: 20px;
+    font-family: "Alfa Slab One", serif;
 }
 
 .uptime {
@@ -100,11 +114,11 @@ img {
 }
 
 svg {
-    fill: rgb(105, 105, 105)
+    fill: grey
 }
 
 svg:hover {
-    stroke:red
+    stroke:rgb(211, 31, 31)
 }
 
 .post-body {
@@ -119,20 +133,45 @@ svg:hover {
 }
 
 .post-body-article {
-    padding-bottom: 20px;
+    display: -webkit-box;
+    margin-bottom: 20px;
+    padding: 15px 15px 5px 15px;
     font-size: 1.3rem;
-    text-align: center;
+    text-align: left;
     word-wrap: break-word;
+    line-height: 1.4;
+    line-clamp: 3;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+#article .post-body-article {
+    line-clamp: none;
+    -webkit-line-clamp: none;
 }
 
 .article-interact-container {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 100px;
+}
 
+.vote-container-article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px 3px grey;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .article-interact-container svg {
-    height: 50px;
-    width: 50px;
+    height: 80px;
+    width: 80px;
 }
 
 table {
@@ -160,6 +199,53 @@ table, th, td {
     float: center;
 }
 
+.article-info {
+    padding: 32px;
+    box-shadow: 0px 0px 3px 3px grey;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.comment {
+    line-height: 1.5;
+    margin: 2%;
+    padding: 2%;
+    box-shadow: 0px 0px 3px 3px grey;
+    border-radius: 10px;
+}
+
+.comment h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.comment .age {
+    color: grey;
+}
+
+.comment .body {
+    padding: 20px 0 20px 0;
+}
+
+.vote-container-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.vote-container-comment svg {
+    height: 50px;
+    width: 50px;
+}
+
+.replies-interact {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 1px;
+    font-weight: bold;
+}
 
 @media only screen and (min-width: 1000px) {
     .post {

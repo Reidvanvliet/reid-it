@@ -8,7 +8,7 @@ const Comments = ({comments}) => {
     return (
         <>
             {comments.map((comment) => {
-                return <Comment comment={comment} key={comment.id}/>
+                return <Comment comment={comment} key={comment.data.id}/>
             })}
         </>
     )
