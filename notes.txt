@@ -1,3 +1,9 @@
+Have to make a search function that filters the titles by term
+
+Make a side bar menu where the login thing is that sorts the posts by communities.
+
+(use PetFinder for reference)
+
 I have to fixe the comments from rendering when the api cuts off the reply train.
 
 I have to allow the comments section to handle a gif reply.
