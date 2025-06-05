@@ -1,8 +1,24 @@
 Have to make a search function that filters the titles by term
+    functionality
+    -enter a term in the search bar and filter the posts by title in real time
+
+    implimentation
+
+        search page render component
+        -you will have to turn both the search term and post.title toLower so its not case sensitive
+        -use map to map through the posts and if post.title "includes()" the given search term store the object in a new array
+
+        search component in nav bar
+        -component will have to get the input with an input tag and an onChange handler
+        -onChange the program will redirect the user the a reid-it/search?{params} page which will update as the use types
+        -
+
 
 Make a side bar menu where the login thing is that sorts the posts by communities.
 
 (use PetFinder for reference)
+
+Comment cards are too bulky. Get rid of some padding.
 
 I have to fixe the comments from rendering when the api cuts off the reply train.
 

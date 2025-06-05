@@ -24,10 +24,26 @@ strong {
 }
 
 .search-container {
+    display: flex;
+    justify-content: space-between;
     width: 40%;
     background-color: rgb(185, 185, 185);
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px;
+}
+
+.search {
+    width: 90%;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    font-weight: bold;
+    outline: none;
+    text-align: center;
+}
+
+.search:focus {
+    border: none;
 }
 
 .login-container {
@@ -250,5 +266,9 @@ table, th, td {
 @media only screen and (min-width: 1000px) {
     .post {
         margin: 50px 20% 5% 20%;
+    }
+
+    .search-container {
+        width: 25%;
     }
 }

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom"
+import SearchBar from "../features/search/SearchBar";
 
 const Navbar = () => {
 
@@ -11,7 +12,7 @@ const Navbar = () => {
                 <NavLink to="/" className="home-logo">Reid<span className="home-logo-span">It</span></NavLink>
             </div>
             <div className='search-container'>
-                {/*<Search />*/}
+                <SearchBar />
                 <img src={require("./magnifyingGlass.png")}/>
             </div>
             <div className="login-container">
