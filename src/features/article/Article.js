@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Comments from '../comments/Comments'
 import { isLoading, selectArticle } from "./articleSlice";
-import { getArticle } from "../../api/Api";
+import { getArticle, handlePostsData } from "../../api/Api";
 import Spinner from "../../components/Spinner"
 import Vote from "../../components/Vote"
 
@@ -77,6 +77,7 @@ const Article = () => {
         </div>
       
       <div className="article-info">
+        {postAge > 24 ? <p className="article-uptime">{Math.round(postAge/24)} day(s) ago</p> : <p className="article-uptime">{postAge} hrs. ago</p>}
         <p><strong>r/{article[0].data.children[0].data.subreddit}</strong></p>
         <p>{article[0].data.children[0].data.author}</p>
       </div>

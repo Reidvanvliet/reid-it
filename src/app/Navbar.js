@@ -4,7 +4,7 @@ import SearchBar from "../features/search/SearchBar";
 import CommunitiesSidebar from "../features/communities/CommunitiesSidebar";
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   let sidebarStyle = { display: show ? "block" : "none" };
 

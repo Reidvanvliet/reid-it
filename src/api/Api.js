@@ -15,8 +15,8 @@ export const getArticle = createAsyncThunk(
 export const getPosts = createAsyncThunk("posts/getPosts", async () => {
   const response = await fetch(`${root}best.json?raw_json=1`);
   const jsonResponse = await response.json();
-  const formattedPosts = await handlePostsData(jsonResponse);
   console.log(jsonResponse);
+  const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
 });
 
@@ -32,13 +32,15 @@ export const getCommunities = createAsyncThunk(
 export const getCommunityPosts = createAsyncThunk(
   'communityPosts/getCommunityPosts',
   async (communityName) => {
-    const response = await fetch(`${root}/r/${communityName}.json`)
+    const response = await fetch(`${root}r/${communityName}.json?raw_json=1`)
     const jsonResponse = await response.json();
-    return jsonResponse;
+    console.log(jsonResponse);
+    const formattedPosts = await handlePostsData(jsonResponse);
+    return formattedPosts;
   }
 )
 
-const handlePostsData = async (json) => {
+export const handlePostsData = async (json) => {
   const postData = [];
   json.data.children.map((postJson) => {
     //convert date from epoch to string

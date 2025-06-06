@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom"
 import { selectCommunities, isLoading } from "./communitiesSlice";
 import { getCommunities } from "../../api/Api";
 import Spinner from "../../components/Spinner";
@@ -43,7 +44,10 @@ const CommunitiesSidebar = ({ sidebarStyle }) => {
           return (
             <div key={communities[community].id} className="community-sidebar">
               <img className="community-thumbnail" src={communities[community].icon} />
-              <h3>{communities[community].name}</h3>
+              <Link to={`/r/${communities[community].name}`}>
+                <h3>{communities[community].name}</h3>
+              </Link>
+              
             </div>
           );
         })}

@@ -10,3 +10,7 @@ It might be a good idea to have the comments render HTML instead but i havent se
 have to style the open and close communities button
 try to add the community avatar to the left
 make the community button filter the main posts by community (make them all a link to community:{community})
+
+https://preview.redd.it/hbubwwbysb5f1.jpeg?auto=webp&amp;s=22609efdbf7931d62012724f2e5fb8116b608841
+
+https://preview.redd.it/hbubwwbysb5f1.jpeg?auto=webp&s=22609efdbf7931d62012724f2e5fb8116b608841

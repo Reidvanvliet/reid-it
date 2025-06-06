@@ -27,7 +27,7 @@ const Post = ({ post }) => {
           <div className="vote-container">
             <Vote votes={post.numUpvotes} postId={post.id} />
 
-            <p className="uptime">{post.upTime} hr. ago</p>
+            {post.upTime > 24 ? <p className="uptime">{Math.round(post.upTime/24)} day(s) ago</p> : <p className="uptime">{post.upTime} hrs. ago</p>}
           </div>
           <Link to={`/${post.subreddit}/${post.id}`}>
             <div className="post-body">

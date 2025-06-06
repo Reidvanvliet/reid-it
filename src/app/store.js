@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import postsReducer from "../features/posts/postsSlice"
 import articleReducer from '../features/article/articleSlice'
 import communitiesReducer from '../features/communities/communitiesSlice'
+import communityPostsReducer from '../features/communityPosts/communityPostsSlice';
 
 export default configureStore({
   reducer: {
     posts: postsReducer,
     article: articleReducer,
     communities: communitiesReducer,
+    communityPosts: communityPostsReducer,
   },
 });
 
