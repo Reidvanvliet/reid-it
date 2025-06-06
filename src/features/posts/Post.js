@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PostMedia from "../../components/PostMedia";
 import Vote from "../../components/Vote";
 
 const Post = ({ post }) => {
-  const [image, setImage] = useState("");
-
-  const checkImage = () => {
-    if (Array.isArray(post.img)) {
-      setImage(post.img[0]);
-    } else if (post.img) {
-      setImage(post.img);
-    }
-  };
-
-  useEffect(() => {
-    checkImage();
-  }, []);
 
   return (
     <>
@@ -31,7 +19,7 @@ const Post = ({ post }) => {
           </div>
           <Link to={`/${post.subreddit}/${post.id}`}>
             <div className="post-body">
-              {image ? <img className="post-image" src={image} /> : ""}
+              <PostMedia postMedia={post.img} />
               {post.body ? <div
                 className="post-body-article"
                 dangerouslySetInnerHTML={{ __html: post.body }}

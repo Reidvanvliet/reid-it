@@ -10,19 +10,13 @@ const Search = () => {
 
     const searchTerm = searchParams.get('search');
 
-     const filteredPosts = [];//allPosts.map((post) => {
-    //     if(post.title.includes(searchTerm)) {
-    //         return post;
-    //     }
-    // });
+     const filteredPosts = []
 
     allPosts.map((post) => {
         if(post.title.includes(searchTerm)) {
             filteredPosts.push(post);
         }
     });
-
-    console.log(filteredPosts);
     
     if(filteredPosts.length == 0) {
         return (
