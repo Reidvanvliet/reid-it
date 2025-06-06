@@ -1,23 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectPosts } from "../posts/postsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectCommunities, isLoading } from "./communitiesSlice";
+import { getCommunities } from "../../api/Api";
+import Spinner from "../../components/Spinner";
 
-const CommunitiesSidebar = ({sidebarStyle}) => {
-  const allPosts = useSelector(selectPosts);
+const CommunitiesSidebar = ({ sidebarStyle }) => {
+  const dispatch = useDispatch();
+  const communitiesRaw = useSelector(selectCommunities);
+  const isLoadingCommunities = useSelector(isLoading);
+  const defaultImage = require('../../media/redditIcon.png')
 
-  const communities = [];
+  useEffect(() => {
+    dispatch(getCommunities());
+  }, [dispatch]);
 
-  allPosts.map((post) => {
-    if (!communities.includes(post.subreddit)) {
-      communities.push(post.subreddit);
+  if (isLoadingCommunities) {
+    return (
+      <div className="side-bar" id="sidebar">
+        <Spinner />
+      </div>
+    );
+  }
+
+  const communities = {};
+
+  communitiesRaw.data.children.map((community) => {
+    if (!Object.hasOwn(communities, community.data.id)) {
+      communities[community.data.id] = {
+        id: community.data.id,
+        name: community.data.display_name,
+      };
+      community.data.icon_img
+        ? (communities[community.data.id].icon = community.data.icon_img)
+        : (communities[community.data.id].icon = defaultImage)
     }
   });
 
   return (
     <>
       <div style={sidebarStyle} className="side-bar" id="sidebar">
-        {communities.map((community) => {
-          return <h3>{community}</h3>;
+        {Object.keys(communities).map((community) => {
+          return (
+            <div key={communities[community].id} className="community-sidebar">
+              <img className="community-thumbnail" src={communities[community].icon} />
+              <h3>{communities[community].name}</h3>
+            </div>
+          );
         })}
       </div>
     </>

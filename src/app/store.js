@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postsReducer from "../features/posts/postsSlice"
 import articleReducer from '../features/article/articleSlice'
+import communitiesReducer from '../features/communities/communitiesSlice'
 
 export default configureStore({
   reducer: {
     posts: postsReducer,
-    article: articleReducer
+    article: articleReducer,
+    communities: communitiesReducer,
   },
 });
 

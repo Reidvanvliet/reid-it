@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts, selectPosts, isLoading } from "./postsSlice";
+import { selectPosts, isLoading } from "./postsSlice";
+import { getPosts } from "../../api/Api";
 import Spinner from "../../components/Spinner";
-import store from "../../app/store";
-import { mockData } from "../../mockData/mockData";
 import Post from "./Post";
-import { v4 as uuidv4 } from "uuid";
 
 const Posts = () => {
     const dispatch = useDispatch();

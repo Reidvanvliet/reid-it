@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import Comments from '../comments/Comments'
-import { getArticle, isLoading, selectArticle } from "./articleSlice";
+import { isLoading, selectArticle } from "./articleSlice";
+import { getArticle } from "../../api/Api";
 import Spinner from "../../components/Spinner"
 import Vote from "../../components/Vote"
 

@@ -11,9 +11,7 @@ const appRouter = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Posts />} />
     <Route path="/:subreddit/:articleId" element={<Article/>} />
     <Route path="/search" element={<Search />} />
-    {/*<Route path="community/:communityId" element={<Community/>} />
-    <Route path="profile/:profileId" element={<Profile/>} />
-    <Route path="search" element={<SearchPage/>} />*/}
+    <Route path="community/:communityName" element={<Community/>} />
   </Route>
 ))
 

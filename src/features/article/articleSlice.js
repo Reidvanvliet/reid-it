@@ -1,14 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export const getArticle = createAsyncThunk(
-    "article/getArticle",
-    async (fetchParams) => {
-        const response = await fetch(`https://www.reddit.com/r/${fetchParams.subreddit}/comments/${fetchParams.id}.json?raw_json=1`)
-        const jsonResponse = await response.json();
-        console.log(jsonResponse);
-        return jsonResponse
-    }
-)
+import { getArticle } from "../../api/Api";
 
 const articleSlice = createSlice({
     name: 'article',

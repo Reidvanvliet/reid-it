@@ -1,23 +1,3 @@
-Have to make a search function that filters the titles by term
-    functionality
-    -enter a term in the search bar and filter the posts by title in real time
-
-    implimentation
-
-        search page render component
-        -you will have to turn both the search term and post.title toLower so its not case sensitive
-        -use map to map through the posts and if post.title "includes()" the given search term store the object in a new array
-
-        search component in nav bar
-        -component will have to get the input with an input tag and an onChange handler
-        -onChange the program will redirect the user the a reid-it/search?{params} page which will update as the use types
-        -
-
-
-Make a side bar menu where the login thing is that sorts the posts by communities.
-
-(use PetFinder for reference)
-
 Comment cards are too bulky. Get rid of some padding.
 
 I have to fixe the comments from rendering when the api cuts off the reply train.
@@ -26,10 +6,7 @@ I have to allow the comments section to handle a gif reply.
 
 It might be a good idea to have the comments render HTML instead but i havent seen a comment with that in it.
 
-<button onClick={setDisplay(!display)}>
-      <div style={{sidebarStyle}} id="communities-sidebar" className="communities-sidebar">
-        {communities.map((community) => {
-          <h3>{community}</h3>;
-        })}
-      </div>
-    </button>
+*do this now*
+have to style the open and close communities button
+try to add the community avatar to the left
+make the community button filter the main posts by community (make them all a link to community:{community})

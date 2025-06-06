@@ -12,17 +12,17 @@ const Navbar = () => {
     <>
       <div className="nav-bar">
         <div className="logo-container">
-          <img src={require("./crawfish.png")} />
+          <img src={require("../media/crawfish.png")} />
           <NavLink to="/" className="home-logo">
             Reid<span className="home-logo-span">It</span>
           </NavLink>
         </div>
         <div className="search-container">
           <SearchBar />
-          <img src={require("./magnifyingGlass.png")} />
+          <img src={require("../media/magnifyingGlass.png")} />
         </div>
         <div className="communities-button-container">
-          <button onClick={(e) => setShow(!show)}>open</button>
+          <button className="button-4" role="button" onClick={(e) => setShow(!show)}>Communities</button>
         </div>
       </div>
       <div className="main-body">
