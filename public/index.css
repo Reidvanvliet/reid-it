@@ -282,6 +282,12 @@ td {
 
 .comment .body {
   padding: 5px 0 5px 0;
+  word-wrap: break-word;
+}
+
+.comment .body a {
+  color: blue;
+  text-decoration: underline;
 }
 
 .vote-container-comment {
