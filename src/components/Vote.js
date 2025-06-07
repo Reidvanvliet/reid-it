@@ -7,11 +7,11 @@ const Vote = ({votes, postId}) => {
     const upvoteButton = () => {
         if(!upvoted && !downvoted) {
             setUpvoted(true);
-           document.getElementById(postId + "up").style.fill = "rgb(211, 31, 31)";
+           document.getElementById(postId + "up").style.fill = "rgb(0, 173, 9)";
         } else if(!upvoted && downvoted) {
             setUpvoted(true);
             setDownvoted(false);
-           document.getElementById(postId + "up").style.fill = "rgb(211, 31, 31)";
+           document.getElementById(postId + "up").style.fill = "rgb(0, 173, 9)";
            document.getElementById(postId + 'down').style.fill = 'grey'
         } else if (upvoted) {
             setUpvoted(false);

@@ -134,8 +134,12 @@ svg {
   fill: grey;
 }
 
-svg:hover {
+.downvote svg:hover {
   stroke: rgb(211, 31, 31);
+}
+
+.upvote svg:hover {
+  stroke: rgb(0, 173, 9);
 }
 
 .post-body {
