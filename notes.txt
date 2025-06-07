@@ -1,5 +1,0 @@
-Comment cards are too bulky. Get rid of some padding.
-
-I have to fixe the comments from rendering when the api cuts off the reply train.
-
-I have to allow the comments section to handle a gif reply.

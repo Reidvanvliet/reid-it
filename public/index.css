@@ -39,7 +39,6 @@ strong {
     font-size: 1rem;
     font-weight: bold;
     outline: none;
-    text-align: center;
 }
 
 .home-logo {
@@ -64,8 +63,6 @@ strong {
     height: 20px;
 }
 
-
-
 .main-body {
     padding-top: 50px;
 }
@@ -88,6 +85,7 @@ strong {
     text-align: center;
     font-size: 2.5rem;
     margin: 20px 20px 40px 20px;
+    padding-bottom: 3px;
     overflow: hidden;
     line-clamp: 3;
     -webkit-line-clamp: 3;
@@ -98,6 +96,10 @@ strong {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.post-body-article p {
+    margin-bottom: 20px;
 }
 
 .vote-container {
@@ -132,8 +134,7 @@ svg:hover {
 }
 
 .post-body {
-    margin-right: 20px;
-    width: 80%;
+    width: 95%;
 }
 
 .post-image {
@@ -147,24 +148,37 @@ svg:hover {
     margin: auto;
 }
 
+.slideshow-container a {
+    color:white;
+    text-decoration: none;
+}
+
 .prev, .next {
   cursor: pointer;
-  position: relative;
-  color: black;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
   font-weight: bold;
   font-size: 18px;
-  border-radius: 0 3px 3px 0;
+  transition: 0.6s ease;
+  border: none;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .next {
-    position:relative;
     right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 .post-body-article {
     display: -webkit-box;
     margin-bottom: 20px;
-    padding: 15px 15px 5px 15px;
+    padding: 20px 15px 5px 15px;
     font-size: 1.3rem;
     text-align: left;
     word-wrap: break-word;
@@ -173,7 +187,6 @@ svg:hover {
     -webkit-line-clamp: 8;
     -webkit-box-orient: vertical; 
     overflow: hidden;
-    border: 5px solid black;
     border-radius: 20px;
 }
 

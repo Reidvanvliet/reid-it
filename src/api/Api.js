@@ -12,9 +12,12 @@ export const getArticle = createAsyncThunk(
     }
 )
 
-export const getPosts = createAsyncThunk("posts/getPosts", async () => {
+export const getPosts = createAsyncThunk(
+  "posts/getPosts",
+  async () => {
   const response = await fetch(`${root}best.json?raw_json=1`);
   const jsonResponse = await response.json();
+  console.log(jsonResponse);
   const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
 });
@@ -33,7 +36,6 @@ export const getCommunityPosts = createAsyncThunk(
   async (communityName) => {
     const response = await fetch(`${root}r/${communityName}.json?raw_json=1`)
     const jsonResponse = await response.json();
-    console.log(jsonResponse);
     const formattedPosts = await handlePostsData(jsonResponse);
     return formattedPosts;
   }

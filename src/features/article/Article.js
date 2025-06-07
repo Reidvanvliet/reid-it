@@ -22,6 +22,8 @@ const Article = () => {
       dispatch(getArticle(fetchParams));
     },[dispatch])
 
+    console.log(article);
+
     if(isLoadingArticle) {
       return <Spinner />
     }
@@ -47,7 +49,7 @@ const Article = () => {
         </div>
       
       <div className="article-info">
-        {article[0][0].upTime > 24 ? <p className="article-uptime">{Math.round(article[0][0].upTime)} day(s) ago</p> : <p className="article-uptime">{article[0][0].upTime} hrs. ago</p>}
+        {article[0][0].upTime > 24 ? <p className="article-uptime">{Math.round(article[0][0].upTime/24)} day(s) ago</p> : <p className="article-uptime">{article[0][0].upTime} hrs. ago</p>}
         <p><strong>r/{article[0][0].subreddit}</strong></p>
         <p>{article[0][0].author}</p>
       </div>
