@@ -541,6 +541,7 @@ td {
   }
 
   .vote-container-article .numUpvotes {
+    padding: 0;
     margin: 0;
   }
 
