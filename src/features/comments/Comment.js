@@ -43,7 +43,7 @@ const Comment = ({ comment }) => {
         </button>
       )}
       {displayComment && (
-        <div style={{ paddingLeft: "3rem" }}>
+        <div style={{ paddingLeft: "3%" }}>
           {comment.data.replies.data.children.map((reply) =>
             reply.kind !== 'more' ? (
               <Comment key={reply.id} comment={reply} />

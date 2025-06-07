@@ -26,6 +26,11 @@ const Post = ({ post }) => {
               /> : '' }
             </div>
           </Link>
+          <div className="vote-container-mobile">
+            <Vote votes={post.numUpvotes} postId={post.id+"mobile"} />
+
+            {post.upTime > 24 ? <p className="uptime">{Math.round(post.upTime/24)} day(s) ago</p> : <p className="uptime">{post.upTime} hrs. ago</p>}
+          </div>
         </div>
       </div>
     </>

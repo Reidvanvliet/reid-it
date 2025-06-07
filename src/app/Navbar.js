@@ -6,15 +6,15 @@ import CommunitiesSidebar from "../features/communities/CommunitiesSidebar";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === "/" || location.pathname === "/search";
 
   return (
     <>
       <div className="nav-bar">
         <div className="logo-container">
+          <NavLink to="/">
           <img src={require("../media/crawfish.png")} />
-          <NavLink to="/" className="home-logo">
-            Reid<span className="home-logo-span">It</span>
+            <span className="home-logo">Reid<span className="home-logo-span">It</span></span>
           </NavLink>
         </div>
         {isHomePage ? (
@@ -27,6 +27,14 @@ const Navbar = () => {
         )}
 
         <div className="communities-button-container">
+          <button
+           className="mobile-communities"
+            role="button"
+            onClick={(e) => setShow(!show)}>
+              <div></div>
+              <div></div>
+              <div></div>
+          </button>
           <button
             className="button-4"
             role="button"
