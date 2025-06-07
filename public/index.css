@@ -442,7 +442,11 @@ td {
 }
 
 @media only screen and (max-width: 900px) {
-  svg:hover {
+  .downvote svg:hover {
+    stroke: none;
+  }
+
+  .upvote svg:hover {
     stroke: none;
   }
 }
