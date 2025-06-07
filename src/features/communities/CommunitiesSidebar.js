@@ -5,7 +5,7 @@ import { selectCommunities, isLoading } from "./communitiesSlice";
 import { getCommunities } from "../../api/Api";
 import Spinner from "../../components/Spinner";
 
-const CommunitiesSidebar = ({ sidebarStyle }) => {
+const CommunitiesSidebar = () => {
   const dispatch = useDispatch();
   const communitiesRaw = useSelector(selectCommunities);
   const isLoadingCommunities = useSelector(isLoading);
@@ -39,7 +39,7 @@ const CommunitiesSidebar = ({ sidebarStyle }) => {
 
   return (
     <>
-      <div style={sidebarStyle} className="side-bar" id="sidebar">
+      <div className="side-bar" id="sidebar">
         {Object.keys(communities).map((community) => {
           return (
             <div key={communities[community].id} className="community-sidebar">
