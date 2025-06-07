@@ -13,7 +13,7 @@ const Search = () => {
      const filteredPosts = []
 
     allPosts.map((post) => {
-        if(post.title.includes(searchTerm)) {
+        if(post.title.toLowerCase().includes(searchTerm.toLowerCase())) {
             filteredPosts.push(post);
         }
     });
