@@ -18,7 +18,7 @@ This app allows you to:
 - Search "best of Reddit" posts by title
 - Navigate to the top 25 communities and view the newest 25 posts 
 - Click on an article to view more information and comments  
-- Upvote and downvote posts and comments *this is restricted to visual only*
+- Upvote and downvote posts and comments (this is restricted to visual only)
 
 ## 💻 Technology
 - **React**
