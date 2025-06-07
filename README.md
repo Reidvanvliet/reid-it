@@ -1,4 +1,47 @@
-# Getting Started with Create React App
+# 👓 Reid It Web App
+[Reid It Application hosted by Netlify](https://reidit.netlify.app/)
+
+
+## ⚠️ Important Notes 
+
+**API Limitations** I have used the .JSON call without OAuth
+
+ **-**The API will only return **25** posts at one time
+ **-**The API can only display a limited number of comments and replies
+ **-**The API can only display a limited number of communities
+ 
+## 🎯 Functionality 
+
+This app allows you to:  
+
+- **View the top 25 "best of Reddit" post**  
+- **Search "best of Reddit" posts by title** 
+- **Navigate to the top 25 communities and view the newest 25 posts**  
+- **Click on an article to view more information and comments**  
+- **Upvote and downvote posts and comments** this is restricted to visual only
+
+## 💻 Technology
+- **React**
+- **React-Router**
+- **React-Redux**
+- **HTML**
+- **CSS**
+- **JS**
+
+## 🔍 React Features
+- `article.jsx` renders the individual article when clicked
+- `comments.jsx` renders the comments from the article fetch
+- `communities.jsx` renders the communities and renders the communities sidebar
+- `posts.jsx` renders the top 25 "best of Reddit" posts
+- `search.jsx` reposible for rendering the search bar and filtering posts by search term
+
+
+## 📂 Components
+- `PostMedia.jsx` determines what time of media the post has and how to render it
+- `Spinner.jsx` renders the spinner when fetching from the API
+- `Vote.jsx` renders the upvote, downvote container with functionality logic
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -28,43 +71,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
