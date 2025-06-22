@@ -47,7 +47,7 @@ const Navbar = () => {
       <div className="main-body">
         <Outlet />
       </div>
-      {show ? <CommunitiesSidebar /> : ""}
+      {show && <CommunitiesSidebar />}
     </>
   );
 };
