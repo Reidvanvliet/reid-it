@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const root = "https://api.allorigins.win/get?url=https://www.reddit.com/"
+const root = "https://corsproxy.io/?https://www.reddit.com/"
 
 export const getArticle = createAsyncThunk(
     "article/getArticle",
     async (fetchParams) => {
         const response = await fetch(`${root}r/${fetchParams.subreddit}/comments/${fetchParams.id}.json?raw_json=1`)
-        const data = await response.json();
-        const jsonResponse = JSON.parse(data.contents);
+        const jsonResponse = await response.json();
         jsonResponse[0] = await handlePostsData(jsonResponse[0]);
         return jsonResponse
     }
@@ -17,8 +16,7 @@ export const getPosts = createAsyncThunk(
   "posts/getPosts",
   async () => {
   const response = await fetch(`${root}best.json?raw_json=1`);
-  const data = await response.json();
-  const jsonResponse = JSON.parse(data.contents);
+  const jsonResponse = await response.json();
   console.log(jsonResponse);
   const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
@@ -28,8 +26,7 @@ export const getCommunities = createAsyncThunk(
     "communities/getCommunities",
     async () => {
         const response = await fetch(`${root}subreddits.json`)
-        const data = await response.json();
-        const jsonResponse = JSON.parse(data.contents);
+        const jsonResponse = await response.json();
         return jsonResponse
     }
 );
@@ -38,8 +35,7 @@ export const getCommunityPosts = createAsyncThunk(
   'communityPosts/getCommunityPosts',
   async (communityName) => {
     const response = await fetch(`${root}r/${communityName}.json?raw_json=1`)
-    const data = await response.json();
-    const jsonResponse = JSON.parse(data.contents);
+    const jsonResponse = await response.json();
     const formattedPosts = await handlePostsData(jsonResponse);
     return formattedPosts;
   }
