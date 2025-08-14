@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const root = "https://www.reddit.com/"
+const root = "/.netlify/functions/reddit-proxy/"
 
 export const getArticle = createAsyncThunk(
     "article/getArticle",
