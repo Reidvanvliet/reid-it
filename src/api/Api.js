@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const root = "/.netlify/functions/reddit-proxy/"
+const root = "https://api.allorigins.win/get?url=https://www.reddit.com/"
 
 export const getArticle = createAsyncThunk(
     "article/getArticle",
     async (fetchParams) => {
-        const response = await fetch(`${root}reddit-proxy?endpoint=r/${fetchParams.subreddit}/comments/${fetchParams.id}.json`)
-        const jsonResponse = await response.json();
+        const response = await fetch(`${root}r/${fetchParams.subreddit}/comments/${fetchParams.id}.json?raw_json=1`)
+        const data = await response.json();
+        const jsonResponse = JSON.parse(data.contents);
         jsonResponse[0] = await handlePostsData(jsonResponse[0]);
         return jsonResponse
     }
@@ -15,8 +16,9 @@ export const getArticle = createAsyncThunk(
 export const getPosts = createAsyncThunk(
   "posts/getPosts",
   async () => {
-  const response = await fetch(`${root}reddit-proxy?endpoint=best.json`);
-  const jsonResponse = await response.json();
+  const response = await fetch(`${root}best.json?raw_json=1`);
+  const data = await response.json();
+  const jsonResponse = JSON.parse(data.contents);
   console.log(jsonResponse);
   const formattedPosts = await handlePostsData(jsonResponse);
   return formattedPosts;
@@ -25,8 +27,9 @@ export const getPosts = createAsyncThunk(
 export const getCommunities = createAsyncThunk(
     "communities/getCommunities",
     async () => {
-        const response = await fetch(`${root}reddit-proxy?endpoint=subreddits.json`)
-        const jsonResponse = await response.json();
+        const response = await fetch(`${root}subreddits.json`)
+        const data = await response.json();
+        const jsonResponse = JSON.parse(data.contents);
         return jsonResponse
     }
 );
@@ -34,8 +37,9 @@ export const getCommunities = createAsyncThunk(
 export const getCommunityPosts = createAsyncThunk(
   'communityPosts/getCommunityPosts',
   async (communityName) => {
-    const response = await fetch(`${root}reddit-proxy?endpoint=r/${communityName}.json`)
-    const jsonResponse = await response.json();
+    const response = await fetch(`${root}r/${communityName}.json?raw_json=1`)
+    const data = await response.json();
+    const jsonResponse = JSON.parse(data.contents);
     const formattedPosts = await handlePostsData(jsonResponse);
     return formattedPosts;
   }
