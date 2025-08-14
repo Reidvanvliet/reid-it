@@ -1,25 +1,49 @@
 exports.handler = async (event, context) => {
-  const { path, queryStringParameters } = event;
-  
-  // Extract the Reddit path from the function path
-  const redditPath = path.replace('/.netlify/functions/reddit-proxy/', '');
-  
-  // Build the Reddit URL
-  let redditUrl = `https://www.reddit.com/${redditPath}`;
-  
-  // Add query parameters if they exist
-  if (queryStringParameters) {
-    const params = new URLSearchParams(queryStringParameters);
-    redditUrl += `?${params.toString()}`;
+  // Handle CORS preflight requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
+      },
+      body: ''
+    };
   }
-  
+
   try {
-    const response = await fetch(redditUrl);
+    // Get the Reddit endpoint from query parameters
+    const redditEndpoint = event.queryStringParameters?.endpoint || 'best.json';
+    
+    // Build the Reddit URL
+    const redditUrl = `https://www.reddit.com/${redditEndpoint}`;
+    
+    // Add raw_json=1 if not already present
+    const url = new URL(redditUrl);
+    if (!url.searchParams.has('raw_json')) {
+      url.searchParams.set('raw_json', '1');
+    }
+    
+    console.log('Fetching from Reddit URL:', url.toString());
+    
+    const response = await fetch(url.toString(), {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; Reid-It/1.0)'
+      }
+    });
     
     if (!response.ok) {
+      console.error('Reddit API error:', response.status, response.statusText);
       return {
         statusCode: response.status,
-        body: JSON.stringify({ error: 'Failed to fetch from Reddit' })
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+          error: `Reddit API returned ${response.status}: ${response.statusText}` 
+        })
       };
     }
     
@@ -35,6 +59,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify(data)
     };
   } catch (error) {
+    console.error('Function error:', error);
     return {
       statusCode: 500,
       headers: {
